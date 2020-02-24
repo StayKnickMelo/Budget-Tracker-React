@@ -20,13 +20,13 @@ const TransactionItem = ({ item }) => {
   if(item.expenses){
     return (<li id='item' style={{width: '700px'}} >
       <div style={{width: '82%'}} className='list-item'>
-        {item.text} <span className='minus'>{item.expenses}</span> <button className='btn-delete' onClick={onClick}>x</button>
+        {item.text} <span className='minus'>{item.expenses}</span> <button className='btn-delete' onClick={onClick}>&times;</button>
       </div>
     </li>)
   }else {
     return (<li id='item' style={{ width: '700px' }} >
       <div style={{ width: '82%' }} className='list-item'>
-        {item.text} <span className='plus'>{item.income}</span> <button className='btn-delete' onClick={onClick}>x</button>
+        {item.text} <span className='plus'>{item.income}</span> <button className='btn-delete' onClick={onClick}>&times;</button>
       </div>
     </li>)
 
