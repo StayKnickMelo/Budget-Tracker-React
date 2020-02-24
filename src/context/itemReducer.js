@@ -1,7 +1,12 @@
-import { ADD_ITEM, DELETE_ITEM, SET_ALERT, REMOVE_ALERT} from "./types"
+import { ADD_ITEM, DELETE_ITEM, SET_ALERT, REMOVE_ALERT, LOAD_ITEMS} from "./types"
 
 const itemReducer = (state, action)=> {
   switch(action.type){
+    case LOAD_ITEMS:
+      return{
+        ...state,
+        items: localStorage.getItem('items')
+      }
     case ADD_ITEM:
       return {
         ...state,

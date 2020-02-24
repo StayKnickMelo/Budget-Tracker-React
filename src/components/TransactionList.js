@@ -15,7 +15,7 @@ const TransactionList = () => {
     <div>
       <h3 className="bottom-line">History</h3>
       <ul>
-        {items.length > 0 ? items.map(item => (
+        {items && items.length > 0 ? items.map(item => (
           <TransactionItem key={item.id} item={item} />
         )) : <h2 className='empty'>You have no transactions yet</h2>}
       </ul>

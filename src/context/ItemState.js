@@ -11,15 +11,17 @@ import { ADD_ITEM, DELETE_ITEM, SET_ALERT, REMOVE_ALERT} from './types';
 const ItemState = (props) => {
 
   const initialState = {
-    items: JSON.parse(localStorage.getItem('items')),
+    items: localStorage.getItem('items') === null ? [] : JSON.parse(localStorage.getItem('items')),
     alert: null
   }
 
   const [state, dispatch] = useReducer(ItemReducer, initialState);
 
+
   // Add item
 
   const addItem = (text, expenses, income) => {
+
 
     const id = uuid.v4();
 
@@ -37,6 +39,8 @@ const ItemState = (props) => {
 
     items.push({ text, expenses, income, id })
     localStorage.setItem('items', JSON.stringify(items));
+
+    
 
   }
 

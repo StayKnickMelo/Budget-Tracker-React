@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 
 import ItemContext from '../context/itemContext';
 
@@ -12,13 +12,25 @@ const Balance = () => {
 
   let total = 0;
 
-  items.forEach(item => {
-    if (!isNaN(item.expenses) && item.expenses !== null  ){
-      total += item.expenses 
-    } else if (!isNaN(item.income) && item.income !== null ){
-      total += item.income
-    }
-  })
+  if (items) {
+    items.forEach(item => {
+      if (!isNaN(item.expenses) && item.expenses !== null) {
+        total += item.expenses
+      } else if (!isNaN(item.income) && item.income !== null) {
+        total += item.income
+      }
+    })
+
+  }
+
+
+  // items.forEach(item => {
+  //   if (!isNaN(item.expenses) && item.expenses !== null  ){
+  //     total += item.expenses 
+  //   } else if (!isNaN(item.income) && item.income !== null ){
+  //     total += item.income
+  //   }
+  // })
 
 
   return (

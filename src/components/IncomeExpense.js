@@ -13,19 +13,31 @@ const IncomeExpense = () => {
   let income = 0;
   let expense = 0;
 
+  if (items) {
+    items.forEach(item => {
+      if (item.income && !isNaN(item.income)) {
+        income += item.income
+      } else if (item.expenses && !isNaN(item.expenses)) {
+        expense += item.expenses
 
-  items.forEach(item => {
-    if(item.income && !isNaN(item.income)){
-      income += item.income
-    } else if(item.expenses && !isNaN(item.expenses)){
-      expense += item.expenses
+      }
+    })
 
-    }
-  })
+  }
+
+
+  // items.forEach(item => {
+  //   if(item.income && !isNaN(item.income)){
+  //     income += item.income
+  //   } else if(item.expenses && !isNaN(item.expenses)){
+  //     expense += item.expenses
+
+  //   }
+  // })
 
   expense = expense.toString().split('-')[1];
 
-  if(expense === undefined){
+  if (expense === undefined) {
     expense = 0
   }
 
@@ -38,7 +50,7 @@ const IncomeExpense = () => {
       <div className='split-line'></div>
       <div className='card-content expenses'>
         <h2>EXPENSES</h2>
-  <h3 className='text-danger badge'>{`$${expense}`}</h3>
+        <h3 className='text-danger badge'>{`$${expense}`}</h3>
       </div>
     </div>
   )
